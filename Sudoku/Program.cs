@@ -6,7 +6,18 @@ namespace Sudoku
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int[,] grid = new int[9,9];
+            for(int j=0;j<9;j++)
+                for(int i=0;i<9;i++)
+                    grid[i,j] = i;
+
+            /* print out the grid */
+            for (int j = 0; j < 9; j++)
+                for (int i = 0; i < 9; i++)
+            {
+                Console.Write(grid[i,j] + " ");
+            }
+            Console.WriteLine();
         }
     }
 }
