@@ -23,14 +23,25 @@ namespace Sudoku
         {
             /* print out the grid */
             StringBuilder output = new StringBuilder();
+            output.Append("-----------------------\r\n");
             for (int j = 0; j < rows; j++)
             {
+                output.Append("| ");
                 for (int i = 0; i < cols; i++)
                 {
-                    output.Append(grid[i, j].value);
+                    if (grid[i, j].value > 0)
+                    {
+                        output.Append(grid[i, j].value);
+                    }
+                    else
+                    {
+                        output.Append(" ");
+                    }
                     output.Append(" ");
+                    if ((i - 2) % 3 == 0) output.Append("|");
                 }
                 output.Append("\r\n");
+                if((j-2)%3 == 0) output.Append("|---------------------|\r\n");
             }
             output.Append("\r\n");
             return output.ToString();
@@ -38,7 +49,23 @@ namespace Sudoku
 
         public void Load(string sGrid)
         {
+            string[] rows = sGrid.Trim().Split("\n");
+            int j = 0;
+            foreach (string row in rows)
+            {
+                int i = 0;
+                foreach (char ch in row)
+                {
+                    grid[i, j].value = int.Parse(ch.ToString());
+                    ++i;
+                }
+                ++j;
+            }
+        }
 
+        public Cell GetCell(int col, int row)
+        {
+            return grid[col, row];
         }
     }
 }
