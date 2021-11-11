@@ -7,12 +7,8 @@ namespace Sudoku
 {
     public class SudokuGrid : Grid
     {
-        SudokuGrid(int rows, int cols) : base(rows, cols)
-        {
 
-        }
-
-        public SudokuGrid() : base(9,9)
+        public SudokuGrid() : base(9, 9)
         {
 
         }
