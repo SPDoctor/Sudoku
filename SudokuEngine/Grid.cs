@@ -47,6 +47,12 @@ namespace Sudoku
             return output.ToString();
         }
 
+        public Cell[,] getGrid()
+        {
+            return grid;
+        }
+
+
         public void Load(string sGrid)
         {
             string[] rows = sGrid.Trim().Split("\n");

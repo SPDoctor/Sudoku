@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" src="css/site.css" />
+
+<br />
+<br />
+<br />
+
+<div class="sudoku-grid">
+    <table>
+        @for (int i = 0; i < 9; i++)
+        {
+            <tr>
+                @for (int j = 0; j < 9; j++)
+                {
+                    <td>
+                        @{
+                            var grid = (Sudoku.Cell[,])ViewData["grid"];
+                            var value = grid[i, j].value;
+                            <span>@(value > 0 ? value.ToString() : "")</span>
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+
+
+
